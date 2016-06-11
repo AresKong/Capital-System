@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>补办</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script> 
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+     <!-- Navigation -->
+        <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">补办账户</a>
+            </div>
+            <!-- /.navbar-header -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                   <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>主页</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-check-square-o nav_icon"></i>开户销户<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="open.html">开设账户</a>
+                                </li>
+                                <li>
+                                    <a href="close.html">消除账户</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>资金操作<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="add.html">添加资金</a>
+                                </li>
+                                <li>
+                                    <a href="draw.html">取出资金</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table nav_icon"></i>挂失补办<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="lost.html">挂失账户</a>
+                                </li>
+                                <li>
+                                    <a href="reopen.html">补办账户</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="passwd.html"><i class="fa fa-laptop nav_icon"></i>修改密码</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+        <div class="col-md-12 graphs">
+	   <div class="xs">
+  	    <h3>账户补办</h3>
+        <div class="well1 white">
+        <form class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+          <fieldset>
+            <div class="form-group">
+              <label class="control-label">新资金账户</label>
+              <input id="nca" type="text" class="form-control1 ng-invalid ng-invalid-required ng-touched" ng-model="model.name" required="">
+              <p id="ncahint"></p>
+            </div>
+             <div class="form-group">
+              <label class="control-label">原资金账户</label>
+              <input id="oca" type="text" class="form-control1 ng-invalid ng-valid-email ng-invalid-required ng-touched" ng-model="model.name" required="">
+              <p id="ocahint"></p>
+            </div>
+            <p id="msg"></p>
+            <div class="form-group">
+              <button id="submit" type="submit" class="btn btn-primary">将原账户内资金恢复到新账户</button>
+              <button type="reset" class="btn btn-default">清除</button>
+            </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+   </div>
+      </div>
+      <!-- /#page-wrapper -->
+   </div>
+    <!-- /#wrapper -->
+<!-- Nav CSS -->
+<link href="css/custom.css" rel="stylesheet">
+<!-- Metis Menu Plugin JavaScript -->
+<script src="js/metisMenu.min.js"></script>
+<script src="js/custom.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#submit').click(function() {
+    if ($('#nca').val()==undefined || $('#nca').val()=="" || $('#nca').val()==null) {
+      $('#nca').focus();
+      $('#ncahint').html("<font color='red'><b>请输入新资金账户号</b></font>");
+      return false;
+    }
+    else {
+      $('#ncahint').html("");
+    }
+    if ($('#oca').val()==undefined || $('#oca').val()=="" || $('#oca').val()==null) {
+      $('#oca').focus();
+      $('#ocahint').html("<font color='red'><b>请输入原资金账户号</b></font>");
+      return false;
+    }
+    else {
+      $('#ocahint').html("");
+    }
+    post();
+  });
+});
+function post() {
+  $.post("reopen.php", {nca:$('#nca').val(), oca:$('#oca').val()},
+  function(data){
+    $('#msg').html(data);
+  },
+  "text");//这里返回的类型有：json,html,xml,text
+}
+</script>
+</body>
+</html>
