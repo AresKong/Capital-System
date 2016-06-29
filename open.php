@@ -13,7 +13,7 @@ $tpw = $_POST["tpw"];
 $aid = implode(array_reverse(str_split($aid)));
 $result = mysql_query("SELECT * FROM capitalaccount WHERE aid = '$aid'");
 $row = mysql_fetch_array($result);
-
+/*
 function requestPost($url = '', $param = '') {
     if (empty($url) || empty($param)) {
         return false;
@@ -46,7 +46,7 @@ if($status == 'error') {
     echo "<script>alert(".$state->info.");</script>";
     exit;
 }
-
+*/
 if(empty($row)) {
 	$sql = "INSERT INTO capitalaccount (aid, password, sid, tpassword) VALUES ('$aid', '$spw', '$sid', '$tpw')";
     if (!mysql_query($sql,$con)) {
