@@ -35,12 +35,15 @@ function requestPost($url = '', $param = '') {
 
 $url = '/stock/account';
 $data = array (
-    'sid' => $sid 
+    'token' => $sid 
 );
-$result = requestPost($url, $data);       
+$result = requestPost($url, $data);
+$state = json_decode($result);
+$status = $state->state;       
 
-if($result == '') {
-    echo "<script>alert('该证券账户不存在，无法注册');</script>";
+if($status == 'error') {
+    //echo "<script>alert('该证券账户不存在，无法注册');</script>";
+    echo "<script>alert(".$state->info.");</script>";
     exit;
 }
 
