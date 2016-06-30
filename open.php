@@ -56,8 +56,7 @@ if(empty($row)) {
     if (!mysql_query($sql,$con)) {
         die('Error: ' . mysql_error());
     }
-	echo "<script>alert('开户成功，您的资金账户号为 $aid');</script>";
-	exit;
+	echo "<script>alert('开户成功');</script>";
 }
 else {
 	echo "<script>alert('该身份证已绑定了资金账号');</script>";
