@@ -47,19 +47,22 @@ if($status == 'error') {
     exit;
 }
 */
+
+
 if(empty($row)) {
-	$sql = "INSERT INTO capitalaccount (aid, password, sid, tpassword) VALUES ('$aid', '$spw', '$sid', '$tpw')";
+    $sql = "INSERT INTO capitalaccount (aid, password, sid, tpassword) VALUES ('$aid', '$spw', '$sid', '$tpw')";
     if (!mysql_query($sql,$con)) {
         die('Error: ' . mysql_error());
     }
     $sql = "INSERT INTO capitalrepo (aid, passwd, capital, frozen) VALUES ('$aid', '$spw', '0', '0')";
     if (!mysql_query($sql,$con)) {
         die('Error: ' . mysql_error());
-    } 
-	echo "<script>alert('开户成功');</script>";
+    }
+    echo "<script>alert('开户成功，您的资金账户号为 $aid');</script>";
+    exit;
 }
 else {
-	echo "<script>alert('该身份证已绑定了资金账号');</script>";
+    echo "<script>alert('该身份证已绑定了资金账号');</script>";
 }
 ?>
 
