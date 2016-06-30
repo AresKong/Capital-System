@@ -11,7 +11,7 @@ if (!$con) {
 }
 mysql_select_db("se", $con);
 
-$aid = $_POST["token"];
+$sid = $_POST["token"];
 echo "<script>alert('error:001');</script>";
 function requestPost($url = '', $param = '') {
     if (empty($url) || empty($param)) {
