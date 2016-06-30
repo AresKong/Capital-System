@@ -32,9 +32,16 @@ function requestPost($url = '', $param = '') {
     return $res;
 }
 echo "<script>alert('error:002');</script>";
+if(empty($_POST['token'])){
+    echo "<script>alert('error:022');</script>";
+}
+if(empty($sid)){
+    echo "<script>alert('error:022');</script>";
+}
+
 $url = 'https://se.clarkok.com/stock/account';
 $data = array (
-    'token' => $sid 
+    'token' => $sid
 );
 echo "<script>alert('error:002-1');</script>";
 $result = requestPost($url, $data);
