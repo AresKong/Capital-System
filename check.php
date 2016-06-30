@@ -32,10 +32,14 @@ function requestPost($url = '', $param = '') {
 }
 
 $url = 'https://se.clarkok.com/stock/account';
-$data = $sid;
+$data = array(
+    'token' => $sid
+);
 
-$result = requestPost($url, "token=394444230");
+$result = requestPost($url, $data);
+echo "<script>alert('post')</script>";
 echo "<script>alert('$data')</script>";
+
 $states = json_decode($result);
 $status = $states->state;       
 if($status == 'error') {
