@@ -3,8 +3,6 @@ if(!isset($_POST['token'])){
 	exit;
 }
 
-echo "<script>alert('error:000');</script>";
-
 $con = mysql_connect("localhost","root","kwr");
 if (!$con) {
     die('Could not connect: ' . mysql_error());
@@ -14,7 +12,6 @@ mysql_select_db("se", $con);
 $sid = $_POST["token"];
 echo "<script>alert('$sid');</script>";
 
-echo "<script>alert('error:001');</script>";
 function requestPost($url = '', $param = '') {
     if (empty($url) || empty($param)) {
         return false;
@@ -33,35 +30,20 @@ function requestPost($url = '', $param = '') {
     
     return $res;
 }
-echo "<script>alert('error:222');</script>";
-if(empty($_POST['token'])){
-    echo "<script>alert('error:022');</script>";
-}
-if(empty($sid)){
-    echo "<script>alert('error:022');</script>";
-}
 
 $url = 'https://se.clarkok.com/stock/account';
 $data = $sid;
 
-echo "<script>alert('error:002-1');</script>";
-$result = requestPost($url, $data);
-echo "<script>alert('$result');</script>";
-
-echo "<script>alert('error:002-11');</script>";
+$result = requestPost($url, "token=394444230");
+echo "<script>alert('$data')</script>";
 $states = json_decode($result);
-echo "<script>alert('error:002-12');</script>";
 $status = $states->state;       
-echo "<script>alert('error:002-2');</script>";
 if($status == 'error') {
     //echo "<script>alert('该证券账户不存在，无法注册');</script>";
     echo "<script>alert(".$state->info.");</script>";
     exit;
 }
-echo "<script>alert('error:002-3');</script>";
 $sid = $states->account;
-
-echo "<script>alert('error:003');</script>";
 
 $result = mysql_query("SELECT * FROM capitalrepo WHERE sid = '$sid'");  
 $row = mysql_fetch_array($result);
@@ -75,7 +57,5 @@ $data = array (
 
 $output_data = json_encode($data);
 echo $output_data;
-
-echo "<script>alert('error:004');</script>";
 
 ?>
