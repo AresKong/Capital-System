@@ -140,21 +140,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/custom.js"></script>
 <script type="text/javascript">
 
-function checkExist() {
-    $.ajax({
-        type: "GET",
-        url: "/stock/account?q="+$("#stock").val(),
-        data: "sid=" + $("#stock").val() + '&temp=' + new Date(),
-        dataType: 'html',
-        success: function(result) {
-            if (result == "") {
+// function checkExist() {
+//     $.ajax({
+//         type: "GET",
+//         url: "/stock/account?q="+$("#stock").val(),
+//         data: "sid=" + $("#stock").val() + '&temp=' + new Date(),
+//         dataType: 'html',
+//         success: function(result) {
+//             if (result == "") {
                 
-            } else {
+//             } else {
                 
-            } 
-        }
-    });
-}
+//             } 
+//         }
+//     });
+// }
 $(document).ready(function() {
   $('#submit').click(function() {
     if ($('#id').val()==undefined || $('#id').val()=="" || $('#id').val()==null) {
@@ -205,7 +205,7 @@ $(document).ready(function() {
     else {
       $('#spwd2hint').html("");
     }
-    checkExist();
+    // checkExist();
     post();
   });
 
