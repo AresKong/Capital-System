@@ -55,7 +55,7 @@ if(empty($row)) {
     $sql = "INSERT INTO capitalrepo (aid, passwd, capital, frozen) VALUES ('$aid', '$spw', '0', '0')";
     if (!mysql_query($sql,$con)) {
         die('Error: ' . mysql_error());
-    }
+    } 
 	echo "<script>alert('开户成功');</script>";
 }
 else {

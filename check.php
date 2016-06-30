@@ -36,16 +36,19 @@ $url = '/stock/account';
 $data = array (
     'token' => $sid 
 );
+echo "<script>alert('error:002-1');</script>";
 $result = requestPost($url, $data);
+echo "<script>alert('error:002-11');</script>";
 $states = json_decode($result);
+echo "<script>alert('error:002-12');</script>";
 $status = $states->state;       
-
+echo "<script>alert('error:002-2');</script>";
 if($status == 'error') {
     //echo "<script>alert('该证券账户不存在，无法注册');</script>";
     echo "<script>alert(".$state->info.");</script>";
     exit;
 }
-
+echo "<script>alert('error:002-3');</script>";
 $sid = $states->account;
 
 echo "<script>alert('error:003');</script>";
