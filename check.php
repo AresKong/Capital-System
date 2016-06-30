@@ -1,6 +1,6 @@
 <?php
 if(!isset($_POST['token'])){
-	exit;
+    exit;
 }
 
 $con = mysql_connect("localhost","root","kwr");
@@ -54,8 +54,8 @@ $capital = $row['capital'];
 $frozen = $row['frozen'];
 
 $data = array (
-    'frozen' => $frozen 
-    'unfrozen' => $capital 
+    'frozen' => $frozen,
+    'unfrozen' => $capital
 );
 
 $output_data = json_encode($data);
