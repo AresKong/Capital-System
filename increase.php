@@ -37,7 +37,7 @@ function requestPost($url = '', $param = '') {
     return $res;
 }
 
-$url = '/stock/account';
+$url = 'http://se.clarkok.com/stock/account';
 $data = array (
     'token' => $sid 
 );

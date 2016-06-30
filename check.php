@@ -1,6 +1,6 @@
 <?php
 if(!isset($_POST['token'])){
-    exit;
+	exit;
 }
 
 echo "<script>alert('error:000');</script>";
@@ -32,7 +32,7 @@ function requestPost($url = '', $param = '') {
     return $res;
 }
 echo "<script>alert('error:002');</script>";
-$url = '/stock/account';
+$url = 'http://se.clarkok.com/stock/account';
 $data = array (
     'token' => $sid 
 );
