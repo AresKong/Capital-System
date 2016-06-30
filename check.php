@@ -3,6 +3,8 @@ if(!isset($_POST['token'])){
     exit;
 }
 
+echo "<script>alert('error:000');</script>";
+
 $con = mysql_connect("localhost","root","kwr");
 if (!$con) {
     die('Could not connect: ' . mysql_error());
@@ -10,7 +12,7 @@ if (!$con) {
 mysql_select_db("se", $con);
 
 $aid = $_POST["token"];
-
+echo "<script>alert('error:001');</script>";
 function requestPost($url = '', $param = '') {
     if (empty($url) || empty($param)) {
         return false;
@@ -29,7 +31,7 @@ function requestPost($url = '', $param = '') {
     
     return $res;
 }
-
+echo "<script>alert('error:002');</script>";
 $url = '/stock/account';
 $data = array (
     'token' => $sid 
@@ -46,7 +48,7 @@ if($status == 'error') {
 
 $sid = $states->account;
 
-
+echo "<script>alert('error:003');</script>";
 
 $result = mysql_query("SELECT * FROM capitalrepo WHERE sid = '$sid'");  
 $row = mysql_fetch_array($result);
@@ -60,5 +62,7 @@ $data = array (
 
 $output_data = json_encode($data);
 echo $output_data;
+
+echo "<script>alert('error:004');</script>";
 
 ?>
