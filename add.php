@@ -18,16 +18,16 @@ if($row['passwd'] == $pw) {
         if (!mysql_query($sql,$con)) {
             die('Error: ' . mysql_error());
         }
-		echo "<script>alert('资金添加成功');</script>";
+		echo "<script>alert('资金添加成功!');</script>";
 		exit;
 	}
 	else {
-		echo "<script>alert('该账户已被冻结');</script>";
+		echo "<script>alert('该账户已被冻结!');</script>";
 		exit;
 	}
 }
 else {
-	echo "<script>alert('密码错误');</script>";
+	echo "<script>alert('密码错误!');</script>";
 }
 ?>
 
