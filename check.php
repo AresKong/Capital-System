@@ -31,7 +31,7 @@ function requestPost($url = '', $param = '') {
     
     return $res;
 }
-echo "<script>alert('error:002');</script>";
+echo "<script>alert('error:222');</script>";
 if(empty($_POST['token'])){
     echo "<script>alert('error:022');</script>";
 }
