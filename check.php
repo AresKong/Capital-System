@@ -60,5 +60,5 @@ $frozen = $row['frozen'];
 // );
 
 // $output_data = json_encode($data);
-echo "unfrozen=".$capital;
+echo $capital;
 ?>

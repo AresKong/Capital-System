@@ -13,7 +13,7 @@ $ca = $_POST["token"];
 $op = $_POST["orgPasswd"];
 $pw = $_POST["newPasswd"];
 
-
+/*
 function requestPost($url = '', $param = '') {
     if (empty($url) || empty($param)) {
         return false;
@@ -48,7 +48,7 @@ if($status == 'error') {
 }
 
 $ca = $states->account;
-
+*/
 
 $result = mysql_query("SELECT * FROM capitalaccount WHERE sid = '$ca'");  
 $row = mysql_fetch_array($result);
