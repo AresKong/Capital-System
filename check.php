@@ -47,6 +47,7 @@ $data = array (
 );
 echo "<script>alert('error:002-1');</script>";
 $result = requestPost($url, $data);
+echo "<script>alert('$result');</script>";
 echo "<script>alert('error:002-11');</script>";
 $states = json_decode($result);
 echo "<script>alert('error:002-12');</script>";
